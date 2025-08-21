@@ -21,7 +21,7 @@ Table of contents
 - API / Usage
 - Internals & important symbols
 - Customization
-- Enable "GPT‑5 mini (Preview) for all clients"
+- Enable "GPT‑OSS-120B for all clients"
 - Troubleshooting
 - License & Notes
 
@@ -77,7 +77,7 @@ If you cannot use `astral-uv`, produce a pinned requirements file from `uv.lock`
 uv run model_server.py
 ```
 
-The `--model` argument points the server at a pretrained model or local path. See "Enable GPT‑5 mini (Preview)" below for a note about changing the default.
+The `--model` argument points the server at a pretrained model or local path. See "Enable GPT‑OSS-120B" below for a note about changing the default.
 
 ## API / Usage
 The server exposes both HTTP and WebSocket endpoints. The handlers are implemented in `model_server.py`.
@@ -123,13 +123,13 @@ Responses for streaming endpoints are produced by the `StreamManager` and usuall
 - Tweak VAD behavior by editing default values in `VadOptions` in `vad_utils.py` (threshold, min/max durations, padding).
 - Add or change logging/file paths inside `StreamManager.sys_prompt_init` to fit your retention and storage policies.
 
-## Enable "GPT‑5 mini (Preview) for all clients"
-EchoSight reads the model to serve from the `--model` command line argument in `model_server.py`. To use a different model (for example `gpt-5-mini-preview`) as the canonical server model for all clients, do one of the following:
+## Enable "GPT‑OSS-120B for all clients"
+EchoSight reads the model to serve from the `--model` command line argument in `model_server.py`. To use a different model (for example `openai/gpt-oss-120b`) as the canonical server model for all clients, do one of the following:
 
 1. Start the server with the desired model id (simple, server‑wide):
 
 ```powershell
-uv run python .\model_server.py --model gpt-5-mini-preview
+uv run python .\model_server.py --model openai/gpt-oss-120b
 ```
 
 2. If you need a runtime feature flag (so the model can be switched without restarting):
