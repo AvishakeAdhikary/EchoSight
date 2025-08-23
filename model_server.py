@@ -228,7 +228,7 @@ class StreamManager:
             audio_prompt, sr = librosa.load(ref_path, sr=16000, mono=True)
             sys_msg = {'role': 'user', 'content': [audio_voice_clone_prompt + "\n", audio_prompt, "\n" + audio_assistant_prompt]}
         elif msg_type == 2: #video
-            voice_clone_prompt="????AI?????????,?????????????????????????????"
+            voice_clone_prompt="你是一个AI助手。你能接受视频，音频和文本输入并输出语音和文本。模仿输入音频中的声音特征。"
             assistant_prompt="You are a helpful assistant with the above voice style. You always speak in English."
             ref_path = self.ref_path_video_default
             
@@ -245,7 +245,7 @@ class StreamManager:
             audio_prompt, sr = librosa.load(ref_path, sr=16000, mono=True)
             sys_msg = {'role': 'user', 'content': [voice_clone_prompt, audio_prompt, assistant_prompt]}
         # elif msg_type == 3: #user start
-        #     assistant_prompt="????,?????????????"
+        #     assistant_prompt="作为助手，你将使用这种声音风格说话。"
         #     if self.customized_options is not None:
         #         assistant_prompt = self.customized_options['assistant_prompt']
                 
