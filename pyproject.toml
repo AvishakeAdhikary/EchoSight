@@ -1,7 +1,7 @@
 [project]
-name = "root"
+name = "EchoSight"
 version = "0.1.0"
-description = "Add your description here"
+description = "EchoSight Users interact with AI through Multimodal AI assistant — real-time camera, voice, and chat interaction with memory."
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
@@ -17,6 +17,7 @@ dependencies = [
     "gradio>=5.43.1",
     "gradio-client>=1.12.1",
     "jsonlines>=4.0.0",
+    "librosa>=0.11.0",
     "markdown2>=2.5.4",
     "matplotlib>=3.10.5",
     "modelscope-studio>=1.4.5",
